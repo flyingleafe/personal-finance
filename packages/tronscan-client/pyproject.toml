@@ -1,0 +1,14 @@
+[project]
+name = "tronscan-client"
+version = "0.1.0"
+description = "Python client for TronScan API"
+authors = [
+    {name = "Dmitry Mukhutdinov", email = "flyingleafe@gmail.com"},
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.31.0",
+]
+
