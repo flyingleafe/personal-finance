@@ -12,3 +12,6 @@ dependencies = [
     "requests>=2.31.0",
 ]
 
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
