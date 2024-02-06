@@ -8,7 +8,7 @@ What constitutes a good personal finance accounting app?
 + Automatic re-calculation of prices between currencies
     + Getting reports renumerated in any currency
 + Automatic accounting exchange and transfer fees/costs
-
++ Pretty customizable visualizations (e.g. using matplotlib/plotly/jupyter)
 
 ## Accounting
 

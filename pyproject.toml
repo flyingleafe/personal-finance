@@ -12,5 +12,7 @@ license = {text = "MIT"}
 [tool.pdm.dev-dependencies]
 dev = [
     "-e file:///${PROJECT_ROOT}/packages/tronscan-client",
+    "-e file:///${PROJECT_ROOT}/packages/visualizer",
     "black>=24.1.1",
+    "pip",
 ]

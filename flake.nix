@@ -20,6 +20,7 @@
 
           shellHook = ''
             export PDM_IGNORE_SAVED_PYTHON=1
+            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH
             eval "$(${pkgs.pdm}/bin/pdm venv activate)"
           '';
         };
