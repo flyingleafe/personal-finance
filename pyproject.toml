@@ -15,4 +15,5 @@ dev = [
     "-e file:///${PROJECT_ROOT}/packages/visualizer",
     "black>=24.1.1",
     "pip",
+    "pre-commit>=3.6.0",
 ]

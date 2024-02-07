@@ -6,9 +6,25 @@ What constitutes a good personal finance accounting app?
 + Automation of all transaction imports where possible
 + Support of easy manual transaction imports (e.g. for cash)
 + Automatic re-calculation of prices between currencies
-    + Getting reports renumerated in any currency
-+ Automatic accounting exchange and transfer fees/costs
+  + Getting reports renumerated in any currency
++ Automatic accounting for exchange and transfer fees/costs
+  + Crypto gas fees;
+  + p2p exchange commissions;
 + Pretty customizable visualizations (e.g. using matplotlib/plotly/jupyter)
++ Server-based, enabling clients on different devices.
+
+## Implementation
+
+### Storage
+#### Requirements
++ Event storage with easy and compact encrypted backups
++ Fast date range queries and aggregation queries
++ Fast indexing (and aggregation) by events' attributes
+
+#### Options to use
++ [EventStoreDB](https://github.com/EventStore/EventStore)
++ [Kafka](https://kafka.apache.org/documentation/streams/)?
++ Just Postgres?
 
 ## Accounting
 
@@ -48,5 +64,3 @@ What constitutes a good personal finance accounting app?
 #### Manual CSV imports
 + TODO: CLI import from CSV
 + TODO: Telegram bot for CSV file forwarding
-
-

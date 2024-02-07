@@ -27,7 +27,7 @@ class TronscanClient:
     ):
         self.api_key = api_key
         self.base_url = base_url
-    
+
     def _auth_headers(self):
         """
         Return the authentication headers for the Tronscan API.
@@ -61,17 +61,19 @@ class TronscanClient:
         except requests.RequestException as e:
             print(f"Error fetching transactions: {e}")
             return []
-            
+
     def fetch_transfers(
         self,
         address: str,
         start: int = 0,
         limit: int = 20,
+        ascending: bool = False,
     ):
         """
         Fetch a list of TRC20 transfers related to the given account on Tron blockchain
         """
-        endpoint = f"/token_trc20/transfers?sort=-timestamp&limit={limit}&start={start}&relatedAddress={address}"
+        minus = "" if ascending else "-"
+        endpoint = f"/token_trc20/transfers?sort={minus}timestamp&limit={limit}&start={start}&relatedAddress={address}"
 
         try:
             response = requests.get(self.base_url + endpoint, headers=self._auth_headers())
@@ -97,6 +99,23 @@ class TronscanClient:
 
         while True:
             transactions = self.fetch_transactions(address, start, limit)
+            yield from transactions
+            if len(transactions) < limit:
+                break
+            start += limit
+
+    def all_transfers(self, address: str):
+        """
+        Fetch all transfers related to the given account on Tron blockchain.
+
+        :param account_address: The address of the account to fetch transactions for.
+        :return: A generator of all transactions associated with the given account.
+        """
+        start = 0
+        limit = 20
+
+        while True:
+            transactions = self.fetch_transfers(address, start, limit, ascending=True)
             yield from transactions
             if len(transactions) < limit:
                 break
