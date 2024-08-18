@@ -16,6 +16,8 @@ dependencies = [
     "pandas>=2.0.0",
     "pydantic",
     "pydantic-settings",
+    "uroman-python",
+    "matplotlib",
 ]
 
 [build-system]
